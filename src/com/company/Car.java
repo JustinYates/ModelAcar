@@ -8,14 +8,10 @@ import static com.company.Main.mainMenu;
 public class Car extends Vehicle {
 
     private Scanner input = new Scanner(System.in);
-    private int year;
-    private String make;
-    private String model;
     private int speed = 0;
     private int gas = 100;
 
     public Car() {
-        super(year, make, model);
         setMake();
         setModel();
         setYear();
@@ -34,7 +30,7 @@ public class Car extends Vehicle {
     public void setYear() {
         System.out.println("What is the year of the car you would like to make?");
         try {
-            year = input.nextInt();
+            super.setYear(input.nextInt());
         } catch (InputMismatchException ime) {
             input.nextLine();
             System.out.println("Please enter a number for the year.");
@@ -46,13 +42,13 @@ public class Car extends Vehicle {
 
     public void setMake() {
         System.out.println("What is the make of the car you would like to create?");
-        make = input.nextLine();
+        super.setMake(input.nextLine());
     }
 
 
     public void setModel() {
         System.out.println("What is the model of the car you would like to create?");
-        model = input.nextLine();
+        super.setModel(input.nextLine());
     }
 
     public int getSpeed() {
